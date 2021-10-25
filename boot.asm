@@ -1,7 +1,7 @@
-mov ah, 0x0e ; tty mode
+mov ah, 0x0e
 mov al, 'E'
 int 0x10
-mov al, 'd
+mov al, 'd'
 int 0x10
 mov al, 'U'
 int 0x10
@@ -9,7 +9,7 @@ mov al, 'D'
 int 0x10
 mov al, 'O'
 int 0x10
-mov al 'S'
+mov al, 'S'
 int 0x10
 
 jmp $
