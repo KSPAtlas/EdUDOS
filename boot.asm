@@ -1,18 +1,20 @@
-mov ah, 0x0e
-mov al, 'E'
-int 0x10
-mov al, 'd'
-int 0x10
-mov al, 'U'
-int 0x10
-mov al, 'D'
-int 0x10
-mov al, 'O'
-int 0x10
-mov al, 'S'
-int 0x10
+; TODO: Add FAT header
+
+mov ai, bootmsg
+call bootmsg
 
 jmp $
+
+puts:
+    mov ah, 0x0e
+    mov al, [ai]
+    int 0x10
+    inc ai
+    cmp ai, 0
+    jne puts
+    ret
+
+bootmsg: db "EduDOS", 0
 
 times 510 - ($-$$) db 0
 dw 0xaa55 
